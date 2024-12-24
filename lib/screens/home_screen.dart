@@ -17,6 +17,7 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   int selected_icon = 0;
+  String label = "";
   List<String> backgroudImages = [
     "assets/images/quran_bg.png",
     "assets/images/hadeth_bg.png",
@@ -53,19 +54,23 @@ class _HomeScreenState extends State<HomeScreen> {
             },
             selectedItemColor: AppColors.white,
             unselectedItemColor: Colors.black,
+            showSelectedLabels: true,
+            showUnselectedLabels: false,
+            selectedLabelStyle:
+                TextStyle(fontWeight: FontWeight.bold, fontSize: 12),
             type: BottomNavigationBarType.fixed,
             backgroundColor: AppColors.primaryColor,
             items: [
               BottomNavigationBarItem(
-                  icon: buildNavBarItem(0, "quran_icon"), label: ""),
+                  icon: buildNavBarItem(0, "quran_icon"), label: "Quran"),
               BottomNavigationBarItem(
-                  icon: buildNavBarItem(1, "hadeth_icon"), label: ""),
+                  icon: buildNavBarItem(1, "hadeth_icon"), label: "Hadeth"),
               BottomNavigationBarItem(
-                  icon: buildNavBarItem(2, "sebha_icon"), label: ""),
+                  icon: buildNavBarItem(2, "sebha_icon"), label: "Sebha"),
               BottomNavigationBarItem(
-                  icon: buildNavBarItem(3, "radio_icon"), label: ""),
+                  icon: buildNavBarItem(3, "radio_icon"), label: "Radio"),
               BottomNavigationBarItem(
-                  icon: buildNavBarItem(4, "time_icon"), label: "")
+                  icon: buildNavBarItem(4, "time_icon"), label: "Time")
             ],
           ),
         )
