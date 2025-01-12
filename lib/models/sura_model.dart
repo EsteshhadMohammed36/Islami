@@ -1,3 +1,6 @@
+import 'package:flutter/cupertino.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+
 class SuraModel {
   String enSuraName;
   String arSuraName;
@@ -351,6 +354,7 @@ class SuraModel {
     '5',
     '6'
   ];
+  static List<int> mostRecentlySuraIndexes = [];
 
   SuraModel(
       {required this.enSuraName,
@@ -365,5 +369,28 @@ class SuraModel {
         arSuraName: arabicQuranSurahs[index],
         ayaNumber: ayatNumber[index],
         index: index);
+  }
+
+  static Future<void> addSuraToMostRecently(
+      int index, BuildContext context) async {
+    //if (!mostRecentlySuraIndexes.contains(index))
+    //if (!SuraModel.mostRecentlySuraIndexes.any((element) => element == index))
+    //if (mostRecentlySuraIndexes.last != index) {
+    SuraModel.mostRecentlySuraIndexes.add(index);
+    //save in shared prefs
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    List<String> mostRecentlyString = SuraModel.mostRecentlySuraIndexes
+        .map((intIndex) => intIndex.toString())
+        .toList();
+    prefs.setStringList("mostRecently", mostRecentlyString);
+  }
+
+  static Future<void> getMostRecentlyFromSharedPrefs() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    List<String>? mostRecentlyString = prefs.getStringList("mostRecently");
+    if (mostRecentlyString == null) return;
+    SuraModel.mostRecentlySuraIndexes = mostRecentlyString
+        .map((stringIndex) => int.parse(stringIndex))
+        .toList();
   }
 }
