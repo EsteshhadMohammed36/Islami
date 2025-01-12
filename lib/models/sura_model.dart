@@ -1,8 +1,9 @@
-import 'package:flutter/material.dart';
-import 'package:islami/app_colors.dart';
-
-class QuranTab extends StatelessWidget {
-  List<String> arabicQuranSuras = [
+class SuraModel {
+  String enSuraName;
+  String arSuraName;
+  String ayaNumber;
+  int index;
+  static List<String> arabicQuranSurahs = [
     "الفاتحه",
     "البقرة",
     "آل عمران",
@@ -118,7 +119,7 @@ class QuranTab extends StatelessWidget {
     "الفلق",
     "الناس"
   ];
-  List<String> englishQuranSurahs = [
+  static List<String> englishQuranSurahs = [
     "Al-Fatiha",
     "Al-Baqarah",
     "Aal-E-Imran",
@@ -234,7 +235,7 @@ class QuranTab extends StatelessWidget {
     "Al-Falaq",
     "An-Nas"
   ];
-  List<String> AyaNumber = [
+  static List<String> ayatNumber = [
     '7',
     '286',
     '200',
@@ -351,138 +352,18 @@ class QuranTab extends StatelessWidget {
     '6'
   ];
 
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 20),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: [
-          Image.asset("assets/images/islami_logo.png"),
-          TextField(
-            cursorColor: AppColors.white,
-            decoration: InputDecoration(
-              fillColor: AppColors.blackColor,
-              filled: true,
-              prefixIcon: Image.asset("assets/images/Vector.png"),
-              hintText: "Sura Name",
-              hintStyle: TextStyle(color: AppColors.white),
-              enabledBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(10),
-                  borderSide: BorderSide(color: AppColors.primaryColor)),
-              focusedBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(10),
-                  borderSide: BorderSide(color: AppColors.primaryColor)),
-            ),
-          ),
-          SizedBox(
-            height: 20,
-          ),
-          Text(
-            "Most Recently ",
-            style: TextStyle(
-                color: AppColors.whhiteColor,
-                fontWeight: FontWeight.bold,
-                fontSize: 16),
-          ),
-          SizedBox(
-            height: 10,
-          ),
-          Container(
-            decoration: BoxDecoration(
-                color: AppColors.primaryColor,
-                borderRadius: BorderRadius.circular(20)),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text("Sura En."),
-                    Text("Sura Ar."),
-                    Text("Ayat num.")
-                  ],
-                ),
-                Image.asset("assets/images/most_recently_image.png")
-              ],
-            ),
-          ),
-          SizedBox(
-            height: 10,
-          ),
-          Text(
-            "Suras List",
-            style: TextStyle(
-                color: AppColors.whhiteColor,
-                fontWeight: FontWeight.bold,
-                fontSize: 16),
-          ),
-          Expanded(
-            child: ListView.separated(
-              itemBuilder: (context, index) {
-                return Row(
-                  children: [
-                    Stack(
-                      alignment: Alignment.center,
-                      children: [
-                        Image.asset(
-                          "assets/images/sura_num_frame.png",
-                        ),
-                        Text(
-                          "${index + 1}",
-                          style: TextStyle(
-                              color: AppColors.white,
-                              fontWeight: FontWeight.bold,
-                              fontSize: 17),
-                        )
-                      ],
-                    ),
-                    SizedBox(
-                      width: 24,
-                    ),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          "${englishQuranSurahs[index]}",
-                          style: TextStyle(
-                              fontSize: 20,
-                              fontWeight: FontWeight.bold,
-                              color: AppColors.white),
-                        ),
-                        Text(
-                          "${AyaNumber[index]} Verses",
-                          style: TextStyle(
-                              fontSize: 14,
-                              fontWeight: FontWeight.bold,
-                              color: AppColors.white),
-                        )
-                      ],
-                    ),
-                    Spacer(),
-                    Text(
-                      "${arabicQuranSuras[index]}",
-                      style: TextStyle(
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold,
-                          color: AppColors.white),
-                    ),
-                  ],
-                );
-              },
-              separatorBuilder: (context, index) {
-                return Divider(
-                  indent: 64,
-                  endIndent: 64,
-                  thickness: 1,
-                  color: AppColors.white,
-                );
-              },
-              itemCount: AyaNumber.length,
-            ),
-          )
-        ],
-      ),
-    );
+  SuraModel(
+      {required this.enSuraName,
+      required this.arSuraName,
+      required this.ayaNumber,
+      required this.index});
+
+  static SuraModel getSuraModel(int index) {
+    //call it instead of creating object in another widget
+    return SuraModel(
+        enSuraName: englishQuranSurahs[index],
+        arSuraName: arabicQuranSurahs[index],
+        ayaNumber: ayatNumber[index],
+        index: index);
   }
 }
