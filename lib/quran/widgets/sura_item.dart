@@ -20,13 +20,8 @@ class SuraItem extends StatelessWidget {
               Image.asset(
                 "assets/images/sura_num_frame.png",
               ),
-              Text(
-                "${suraModel.index + 1}",
-                style: TextStyle(
-                    color: AppColors.white,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 17),
-              )
+              Text("${suraModel.index + 1}",
+                  style: Theme.of(context).textTheme.bodyMedium),
             ],
           ),
           SizedBox(
@@ -35,30 +30,26 @@ class SuraItem extends StatelessWidget {
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
-                "${suraModel.enSuraName}",
-                style: TextStyle(
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold,
-                    color: AppColors.white),
-              ),
+              Text("${suraModel.enSuraName}",
+                  style: Theme.of(context)
+                      .textTheme
+                      .bodyLarge!
+                      .copyWith(color: AppColors.white)),
               Text(
                 "${suraModel.ayaNumber} Verses",
-                style: TextStyle(
-                    fontSize: 14,
-                    fontWeight: FontWeight.bold,
-                    color: AppColors.white),
+                style: Theme.of(context)
+                    .textTheme
+                    .bodySmall!
+                    .copyWith(color: AppColors.white),
               )
             ],
           ),
           Spacer(),
-          Text(
-            "${suraModel.arSuraName}",
-            style: TextStyle(
-                fontSize: 20,
-                fontWeight: FontWeight.bold,
-                color: AppColors.white),
-          ),
+          Text("${suraModel.arSuraName}",
+              style: Theme.of(context)
+                  .textTheme
+                  .bodyLarge!
+                  .copyWith(color: AppColors.white)),
         ],
       ),
     );
