@@ -20,6 +20,7 @@ class _SuraDetailsScreenState extends State<SuraDetailsScreen> {
     var args = ModalRoute.of(context)!.settings.arguments as SuraModel;
     if (verses.isEmpty) loadSuraContent(args.index);
     return Scaffold(
+      backgroundColor: AppColors.black,
       appBar: AppBar(
         title: Text(args.enSuraName),
       ),

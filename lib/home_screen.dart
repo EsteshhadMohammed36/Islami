@@ -52,8 +52,6 @@ class _HomeScreenState extends State<HomeScreen> {
                 selected_icon = index;
                 setState(() {});
               },
-              type: BottomNavigationBarType.fixed,
-              backgroundColor: AppColors.primaryColor,
               items: [
                 BottomNavigationBarItem(
                     icon: buildNavBarItem(0, "quran_icon"), label: "Quran"),
