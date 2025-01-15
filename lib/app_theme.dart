@@ -25,12 +25,14 @@ class AppTheme {
         headlineLarge: TextStyle(
             fontSize: 36, fontWeight: FontWeight.bold, color: AppColors.white),
         headlineMedium: TextStyle(
-            fontSize: 16, fontWeight: FontWeight.bold, color: AppColors.white),
+            fontSize: 24, color: AppColors.black, fontWeight: FontWeight.bold),
+        headlineSmall: TextStyle(
+            fontSize: 20, color: AppColors.black, fontWeight: FontWeight.bold),
         bodyLarge: TextStyle(
-            color: AppColors.black, fontWeight: FontWeight.bold, fontSize: 20),
+            fontSize: 18, fontWeight: FontWeight.bold, color: AppColors.white),
         bodyMedium: TextStyle(
-            fontWeight: FontWeight.bold, fontSize: 18, color: AppColors.white),
+            fontSize: 16, fontWeight: FontWeight.bold, color: AppColors.white),
         bodySmall: TextStyle(
-            color: Colors.black, fontSize: 12, fontWeight: FontWeight.bold)),
+            color: Colors.black, fontSize: 14, fontWeight: FontWeight.bold)),
   );
 }
