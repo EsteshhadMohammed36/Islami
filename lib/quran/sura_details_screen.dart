@@ -82,9 +82,6 @@ class _SuraDetailsScreenState extends State<SuraDetailsScreen> {
         await rootBundle.loadString("assets/files/suras/${index + 1}.txt");
     List<String> suraLines = suraContent.split("\n");
     verses = suraLines;
-    for (int i = 0; i < suraLines.length; i++) {
-      print(suraLines[i]);
-    }
     setState(() {});
   }
 }

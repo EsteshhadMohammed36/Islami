@@ -30,9 +30,9 @@ class MostRecentlyItem extends StatelessWidget {
               children: [
                 Text(
                   sura.enSuraName,
-                  style: textTheme.bodyLarge,
+                  style: textTheme.headlineMedium,
                 ),
-                Text(sura.arSuraName, style: textTheme.bodyLarge),
+                Text(sura.arSuraName, style: textTheme.headlineMedium),
                 Text(sura.ayaNumber, style: textTheme.bodySmall)
               ],
             ),

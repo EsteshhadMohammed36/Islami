@@ -3,8 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:islami/hadeth/hadeth_item.dart';
 
 class HadethTab extends StatelessWidget {
-  const HadethTab({super.key});
-
   @override
   Widget build(BuildContext context) {
     var screenSize = MediaQuery.sizeOf(context);
@@ -13,7 +11,7 @@ class HadethTab extends StatelessWidget {
         Image.asset("assets/images/islami_logo.png"),
         Expanded(
             child: CarouselSlider.builder(
-          itemCount: 10,
+          itemCount: 50,
           itemBuilder: (context, index, realIndex) => HadethItem(
             index: index,
           ),

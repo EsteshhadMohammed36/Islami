@@ -58,19 +58,20 @@ class _SebhaTabState extends State<SebhaTab> {
             ],
           ),
         ),
-        Padding(
-          padding: EdgeInsets.only(top: height * 0.03),
-          child: ElevatedButton(
-            onPressed: () {
-              index = 0;
-              counter = 0;
-              setState(() {});
-            },
-            child: Text("Reset", style: textTheme.headlineLarge),
-            style: ElevatedButton.styleFrom(
-              backgroundColor: AppColors.primaryColor,
-            ),
+        Spacer(),
+        ElevatedButton(
+          onPressed: () {
+            index = 0;
+            counter = 0;
+            setState(() {});
+          },
+          child: Text("Reset", style: textTheme.headlineMedium),
+          style: ElevatedButton.styleFrom(
+            backgroundColor: AppColors.primaryColor,
           ),
+        ),
+        SizedBox(
+          height: height * 0.01,
         )
       ],
     );

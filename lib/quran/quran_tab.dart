@@ -13,6 +13,7 @@ class QuranTab extends StatefulWidget {
 class _QuranTabState extends State<QuranTab> {
   @override
   Widget build(BuildContext context) {
+    var textTheme = Theme.of(context)!.textTheme;
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
@@ -22,14 +23,14 @@ class _QuranTabState extends State<QuranTab> {
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20),
             child: TextField(
-              style: Theme.of(context).textTheme.headlineMedium,
+              style: textTheme.bodyMedium,
               cursorColor: AppColors.white,
               decoration: InputDecoration(
                 fillColor: AppColors.blackColor,
                 filled: true,
                 prefixIcon: Image.asset("assets/images/Vector.png"),
                 hintText: "Sura Name",
-                hintStyle: TextStyle(color: AppColors.white),
+                hintStyle: textTheme.bodyMedium,
                 enabledBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(10),
                     borderSide: BorderSide(color: AppColors.primaryColor)),
@@ -46,9 +47,8 @@ class _QuranTabState extends State<QuranTab> {
         Visibility(
           visible: SuraModel.mostRecentlySuraIndexes.isNotEmpty,
           child: Padding(
-            padding: const EdgeInsets.only(left: 20, bottom: 10),
-            child: Text("Most Recently ",
-                style: Theme.of(context).textTheme.headlineMedium),
+            padding: const EdgeInsets.only(top: 10, left: 20, bottom: 10),
+            child: Text("Most Recently ", style: textTheme.bodyMedium),
           ),
         ),
         Expanded(
@@ -72,8 +72,7 @@ class _QuranTabState extends State<QuranTab> {
         ),
         Padding(
           padding: const EdgeInsets.only(left: 20, bottom: 10),
-          child: Text("Suras List",
-              style: Theme.of(context).textTheme.headlineMedium),
+          child: Text("Suras List", style: textTheme.bodyMedium),
         ),
         Expanded(
           flex: 40,
