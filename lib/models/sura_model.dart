@@ -374,8 +374,11 @@ class SuraModel {
   static Future<void> addSuraToMostRecently(
       int index, BuildContext context) async {
     //if (!mostRecentlySuraIndexes.contains(index))
-    //if (!SuraModel.mostRecentlySuraIndexes.any((element) => element == index))
-    //if (mostRecentlySuraIndexes.last != index) {
+    bool isFound =
+        SuraModel.mostRecentlySuraIndexes.any((element) => element == index);
+    if (isFound) {
+      SuraModel.mostRecentlySuraIndexes.remove(index);
+    }
     SuraModel.mostRecentlySuraIndexes.add(index);
     //save in shared prefs
     SharedPreferences prefs = await SharedPreferences.getInstance();
